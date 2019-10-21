@@ -1,0 +1,97 @@
+using System;
+
+class MainClass
+{
+    public static void Main(string[] args)
+    {
+        Console.Clear();
+        Random rand = new Random();
+        int[,] a = new int[100,100];
+        int M, N, i, j, s, k;
+        Console.Write("Введите порядок матрицы: ");
+        M = int.Parse(Console.ReadLine());
+        Console.WriteLine();
+        Console.WriteLine("Изначальная матрица: ");
+        for (i = 0; i < M; i++)
+        {
+          for (j = 0; j < M; j++)
+          {
+             a[i,j] = rand.Next(100);
+             if (j != M-1)
+             {
+               Console.Write(a[i,j]);
+               Console.Write(" ");
+             }
+             else 
+             {
+               if (j == M-1)
+               Console.WriteLine(a[i,j]);
+             }
+          }
+        }
+        Console.WriteLine();
+        Console.WriteLine("Конечная матрица: ");
+        s = 0;
+        k = 0;
+        i = 0;
+        while (s <= 2*M - 1)
+        {
+        for (j = s; j < M; j++)
+        {
+             if (j != M-1)
+             {
+               Console.Write(a[s,j]);
+               Console.Write(" ");
+             }
+             else 
+             {
+               if (j == M-1)
+               Console.WriteLine(a[s,j]);
+             }
+         }
+         s++;
+         for (j=s; j<=M-s; j++)
+         {
+           if (j != M-s)
+           {
+             Console.Write(a[j, M-1]);
+             Console.Write(" ");
+           }             
+           else 
+           {
+             if (j == M-s)
+             Console.WriteLine(a[j, M-1]);
+           }
+         }
+         s++;
+         for (j=M-s; j>=s-2; j--)
+         {
+           if (j!= s-2)
+           {
+            Console.Write(a[M-1, j]);
+            Console.Write(" ");
+           }
+           else
+           {
+             if(j==s-2)
+             Console.WriteLine(a[M-1, j]);
+           }
+         }
+         s++;
+         for (j=M-s; j >= s-1; j--)
+         {
+           if (j != s-1)
+           {
+             Console.Write(a[j, M-s-]);
+            Console.Write(" ");
+           }
+           else
+           {
+             if (j == s-1)
+             Console.WriteLine(a[j,0]);
+           }
+         }
+         s++;
+    }
+    }
+}
