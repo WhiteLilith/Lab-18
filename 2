@@ -1,0 +1,45 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) 
+  {
+    Console.Clear();
+    Random rand = new Random();
+    int[,] a = new int[100,100];
+    int i, j, K, N, sum, pr, M;
+    Console.Write("Введите количество строк матрицы: ");
+    N = int.Parse(Console.ReadLine());
+    Console.Write("Введите количество столбцов матрицы: ");
+    M = int.Parse(Console.ReadLine());
+    Console.Write("Введите номер строки: ");
+    K = int.Parse(Console.ReadLine());
+    Console.WriteLine("Начальная матрица: ");
+    Console.WriteLine();
+    for (i=0; i<N; i++)
+    {
+      for (j=0; j<M; j++)
+      {
+      a[i,j] = rand.Next(100);   
+      Console.Write(a[i,j]);
+      if (j!=M-1)
+      Console.Write(" ");
+      else
+      Console.WriteLine();
+      }  
+    }
+    sum = 0;
+    pr = 1;
+    for (i=0; i<M; i++)
+    {
+      sum = sum + a[K-1, i];
+      pr = pr * a[K-1, i];
+    }
+    Console.WriteLine();
+    Console.Write("Произведение элементов ");
+    Console.Write(K);
+    Console.Write(" строки равно: ");
+    Console.Write(pr);
+    Console.Write(", сумма элементов этой строки равна: ");
+    Console.Write(sum);
+  }
+}
