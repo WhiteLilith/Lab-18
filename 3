@@ -1,0 +1,64 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) 
+  {
+    Console.Clear();
+    Random rand = new Random();
+    int[,] a = new int[100,100];
+    int[] b = new int[100];
+    int i, j, k, N, pr, M;
+    Console.Write("Введите количество строк матрицы: ");
+    N = int.Parse(Console.ReadLine());
+    Console.Write("Введите количество столбцов матрицы: ");
+    M = int.Parse(Console.ReadLine());
+    Console.WriteLine("Начальная матрица: ");
+    Console.WriteLine();
+    for (i=0; i<N; i++)
+    {
+      for (j=0; j<M; j++)
+      {
+      a[i,j] = int.Parse(Console.ReadLine());  
+      Console.Write(a[i,j]);
+      if (j!=M-1)
+      Console.Write(" ");
+      else
+      Console.WriteLine();
+      }  
+    }
+    Console.Clear();
+    Console.WriteLine("Начальная матрица: ");
+    for (i=0; i<N; i++)
+    {
+      for (j=0; j<M; j++)
+      { 
+      Console.Write(a[i,j]);
+      if (j!=M-1)
+      Console.Write(" ");
+      else
+      Console.WriteLine();
+      }  
+    }
+    pr = 1;
+    for (j=0; j<M; j++)
+    {
+      for (i=0; i<N; i++)
+      {
+        pr = pr * a[i,j];
+        b[j] = pr;
+      } 
+    }
+    k = 173234;
+    for (i=0; i<M; i++)
+    {
+      if (b[i]<k)
+      k = b[i];
+      j = i;
+    }
+    Console.WriteLine();
+    Console.Write("Произведение элементов ");
+    Console.Write(j-1);
+    Console.Write(" столбца равно: ");
+    Console.Write(k);
+  }
+}
