@@ -1,100 +1,60 @@
-using System;
+using System; 
 
-class MainClass {
-  public static void Main (string[] args) 
-  {
-    Console.Clear();
-    Random rand = new Random();
-    int[,] a = new int[100,100];
-    int i, j, k, l, m, N, g;
-    Console.Write("Введите порядок матрицы: ");
-    N = int.Parse(Console.ReadLine());
-    Console.WriteLine("Начальная матрица: ");
-    Console.WriteLine();
-    for (i=0; i<N; i++)
+class MainClass { 
+static void Main(string[] args) 
+{ 
+int M, i, j, x;
+Console.WriteLine("Введите порядок матрицы(нечетное число): ");
+M = int.Parse(Console.ReadLine());
+int[,]a= new int[M,M];
+Console.WriteLine("Введите элементы массива: ");
+for(i=0;i<M;i++)
+ {
+   for(j=0;j<M;j++)
     {
-      for (j=0; j<N; j++)
-      {
-      a[i,j] = rand.Next(100);   
+      a[i,j] = int.Parse(Console.ReadLine());
+    }
+  }
+Console.WriteLine("Начальная матрица: ");
+  Console.WriteLine();
+  for (i=0; i<M; i++)
+    {
+      for (j=0; j<M; j++)
+      {  
       Console.Write(a[i,j]);
-      if (j!=N-1)
+      if (j!=M-1)
       Console.Write(" ");
       else
       Console.WriteLine();
       }  
     }
-      Console.WriteLine();
-      Console.WriteLine("Конечная матрица: ");
-      Console.WriteLine();
-      k = 0;
-      i = 0;
-      j = 0;
-      m = 1;
-      l = 0;
-      while (k < N*N)
-      {
-        while (i != -5)
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine("Конечная матрица: ");
+Console.WriteLine();
+if(M%2!=0)
+ {
+   for(x=0;x<M/2;x++)
+     {
+       for(i=0;i<=M-1-2*x;i++)
         {
-          while (j <= N - m)
-          {
-            Console.Write(a[i,j]);
-            k++;
-            if (j!=N-m)
-            Console.Write(" ");
-            else
-            Console.WriteLine();
-            j++;
-          }
-          i = -5;
+          Console.Write(a[i+x,x]+" ");
         }
-        i = 0;
-        while (j != -5)
+       for(j=0;j<=M-2-2*x;j++)
         {
-          while (i <= N - m)
-          {
-            Console.Write(a[i,j]);
-            k++;
-            if (j!=N-m)
-            Console.Write(" ");
-            else
-            Console.WriteLine();
-            i++;
-          }
-          j = -5;
+          Console.Write(a[M-1-x,x+1+j]+" ");
         }
-        j = 0;
-        while (i != -5)
+       for(i=0;i<= M - 2 - 2*x; i++)
         {
-          while (j != l)
-          {
-            Console.Write(a[i,j]);
-            k++;
-            if (j!=l)
-            Console.Write(" ");
-            else
-            Console.WriteLine();
-            j--;
-          }
-          i = -5;
+          Console.Write(a[M-2-x-i,M-1-x]+" ");
         }
-        i = N - m;
-        while (j != -5)
+       for(j=0;j<=M-3-2*x;j++)
         {
-          while (i != m)
-          {
-            Console.Write(a[i,j]);
-            k++;
-            if (j!=N-m)
-            Console.Write(" ");
-            else
-            Console.WriteLine();
-            i--;
-          }
-          j = -5;
+          Console.Write(a[x,M-2-x-j]+" ");
         }
-        j = l;
-      }
-      l++;
-      m++;
-  }
-}
+     }
+   Console.Write(a[M/2,M/2]);
+ }
+Console.ReadLine();
+} 
+} 
