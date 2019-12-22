@@ -30,7 +30,7 @@ Console.WriteLine("Начальная матрица: ");
     }
 Console.WriteLine();
 Console.WriteLine();
-Console.WriteLine("Конечная матрица: ");
+Console.WriteLine("Результат: ");
 Console.WriteLine();
 if(M%2!=0)
  {
